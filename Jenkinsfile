@@ -1,11 +1,10 @@
 pipeline{
 
-      agent {
-                docker {
-                image 'maven:3-openjdk-11'
+     agent any
+    environment {
+        PATH = "$PATH:/opt/apache-maven-3.8.4/bin"
+    }
 
-                }
-            }
         
         stages{
 
