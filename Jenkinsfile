@@ -1,17 +1,18 @@
 pipeline{
 
-     agent any
-    environment {
-        PATH = "$PATH:/opt/apache-maven-3.8.4/bin"
-    }
+      agent {
+                docker {
+                image 'maven:3-openjdk-11'
 
+                }
+            }
         
         stages{
 
               stage('Quality Gate Status Check'){
                   steps{
                       script{
-			      withSonarQubeEnv('sonarqube-9.2') { 
+			      withSonarQubeEnv('sonarserver') { 
 			      sh "mvn clean sonar:sonar"
                        	     	}
 			      timeout(time: 1, unit: 'HOURS') {
