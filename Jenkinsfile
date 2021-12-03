@@ -13,7 +13,7 @@ pipeline{
               stage('Quality Gate Status Check'){
                   steps{
                       script{
-			      withSonarQubeEnv('sonarqube-9.2.0.49834') { 
+			      withSonarQubeEnv('sonarqube-7.3') { 
 			      sh "mvn clean sonar:sonar"
                        	     	}
 			      timeout(time: 1, unit: 'HOURS') {
