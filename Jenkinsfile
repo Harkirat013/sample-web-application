@@ -1,12 +1,10 @@
 pipeline{
 
-            agent {
-                docker {
-                image 'maven'
-                args ‘-v $ HOME/.m2:/root/.m2’
+            agent any
+    environment {
+        PATH = "$PATH:/opt/apache-maven-3.8.4/bin"
+    }
 
-                }
-            }
 
 
         
